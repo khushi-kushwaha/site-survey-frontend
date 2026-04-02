@@ -26,6 +26,8 @@ function Login() {
 
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("role", res.data.role);
+    localStorage.setItem("email", res.data.email);
+
 
     toast.success("Login Successful 🚀");
 
@@ -33,11 +35,10 @@ function Login() {
     const role = res.data.role;
 
     if (role === "ADMIN") {
-      navigate("/admin");
-    } else if (role === "MANAGER") {
-      navigate("/manager");
-    } else {
-      navigate("/user");
+      navigate("/admindashboard");
+    } 
+    else {
+      navigate("/userdashboard");
     }
 
   } catch (err) {
