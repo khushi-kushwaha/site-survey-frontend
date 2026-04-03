@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MapPin, Trash2, X, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 import { useNavigate, useParams } from "react-router-dom"; // 🔥 added
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../Components/Dashboard";
 
 const UserRfscan = () => {
   const [routers, setRouters] = useState([]);

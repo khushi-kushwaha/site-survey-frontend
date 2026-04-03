@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../Components/Dashboard";
 
 const UserSitedetail = () => {
   const { id } = useParams();

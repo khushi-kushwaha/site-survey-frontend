@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Save, Trash2, X, Check, MapPin } from 'lucide-react';
 import { toast } from "sonner";
 import { useNavigate, useParams } from "react-router-dom"; // 🔥 added
-import Dashboard from '../components/Dashboard';
+import Dashboard from '../Components/Dashboard';
 
 const UserLabelspace = () => {
   const [labels, setLabels] = useState([]);

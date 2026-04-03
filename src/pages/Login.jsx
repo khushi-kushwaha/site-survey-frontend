@@ -24,15 +24,25 @@ function Login() {
   try {
     const res = await loginUser(formData);
 
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("role", res.data.role);
-    localStorage.setItem("email", res.data.email);
+    const accessToken = res.data?.accessToken || res.data?.token;
+    const refreshToken = res.data?.refreshToken;
+    const role = (res.data?.role || "USER").toUpperCase();
 
+    if (!accessToken) {
+      throw new Error("Token missing in login response");
+    }
+
+    localStorage.setItem("token", accessToken);
+    localStorage.setItem("role", role);
+    localStorage.setItem("email", res.data?.email || formData.email);
+
+    if (refreshToken) {
+      localStorage.setItem("refreshToken", refreshToken);
+    }
 
     toast.success("Login Successful 🚀");
 
     // redirect based on role
-    const role = res.data.role;
 
     if (role === "ADMIN") {
       navigate("/admindashboard");
@@ -42,7 +52,8 @@ function Login() {
     }
 
   } catch (err) {
-    toast.error("Invalid Credentials ❌");
+    const message = err?.response?.data?.message || "Invalid Credentials ❌";
+    toast.error(message);
   }
 };
   return (
