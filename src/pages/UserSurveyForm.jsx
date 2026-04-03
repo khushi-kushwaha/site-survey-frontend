@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../Components/Dashboard";
 import { useNavigate } from "react-router-dom";
 
 const UserSurveyForm = () => {

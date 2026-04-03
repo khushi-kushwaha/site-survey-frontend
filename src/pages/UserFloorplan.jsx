@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../Components/Dashboard";
 import { toast } from "sonner";
 
 const UserFloorplan = () => {

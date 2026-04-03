@@ -24,10 +24,12 @@ function Register() {
     e.preventDefault();
 
     try {
-  const res = await registerUser(formData);
+  await registerUser(formData);
   toast.success('Registered Successfully 🚀');
+  navigate("/login");
 } catch (err) {
-  toast.error('Registration Failed ❌');
+  const message = err?.response?.data?.message || 'Registration Failed ❌';
+  toast.error(message);
 }
   };
 
